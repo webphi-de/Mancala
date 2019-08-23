@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mancala">
+    package="de.webphi.mancala">
 
     <application
         android:allowBackup="true"
@@ -9,16 +9,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".MainActivity"
+            android:name="de.webphi.mancala.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar"><!--  -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="de.webphi.mancala.SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName="de.webphi.mancala.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.webphi.mancala.MainActivity"/>
+        </activity>
+
+        <activity android:name="de.webphi.mancala.GameRulesActivity"
+            android:label="Game rules"
+            android:parentActivityName="de.webphi.mancala.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.webphi.mancala.MainActivity"/>
+        </activity>
+
+        <activity android:name="de.webphi.mancala.AboutActivity"
+            android:label="About"
+            android:parentActivityName="de.webphi.mancala.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.webphi.mancala.MainActivity"/>
+        </activity>
+
     </application>
 
 </manifest>

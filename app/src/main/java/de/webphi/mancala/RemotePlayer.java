@@ -15,11 +15,10 @@
  *          with 2 manual players or against an automatic player
  *
  */
-package com.example.mancala;
+package de.webphi.mancala;
 
 public class RemotePlayer extends Spieler {
 	
-	//private Client client;
 	private int muldenNummer;
 	private Spielbrett spielbrett;
 

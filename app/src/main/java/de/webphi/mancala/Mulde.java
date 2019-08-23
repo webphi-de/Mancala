@@ -1,7 +1,7 @@
 /**
  * @(#)Mulde.java
  *
- *Die Mulde ist eine Objektklasse für das Spielbrett. Somit hat er die Objekte Spieler, Mulden und
+ * Die Mulde ist eine Objektklasse für das Spielbrett. Somit hat er die Objekte Spieler, Mulden und
  * dern Spielsteine.
  *
  * Die innere Klasse MuldenObj erzeugt Mulden Objekte mit den dazugehoerigen
@@ -13,16 +13,19 @@
  *
  * @project Initially a Mancala-Project during the Software Engineering Practical Course in WS/SS 2005/06
  *          at the University of Bayreuth from Melanie and Stefan Kannegießer.
- *          Now porting as an Android App from 2019 during a training course at ALP Dillingen.
- * @author  Stefan Kannegießer
- * @version v1.0 17.03.2006
- * @since   JDK 1.5.0
- * @history v1.00 17.03.2006 - first executable version
+ * //old @version v1.0 17.03.2006
+ * //old @since   JDK 1.5.0
+ * //old @history v1.00 17.03.2006 - result of practical course to play via rmi against chair ai1 at university of bayreuth
+ *
+ * @author  Stefan Kannegieße
+ * @since   JDK 8, Android API 29
+ * @version
+ * @history v0.10 01.08.2019 - porting as an Android App. * @history v1.00 17.03.2006 - first executable version
  *          v1.10 05.08.2019 - (new version) first executable version
  *          with 2 manual players or against an automatic player
  *
  */
-package com.example.mancala;
+package de.webphi.mancala;
 
 public class Mulde {
 

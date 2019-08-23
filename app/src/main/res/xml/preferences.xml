@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.PreferenceCategory
+        app:key="player"
+        app:title="@string/choose_player">
+
+        <SwitchPreferenceCompat
+            app:key="pref_player_ki"
+            app:title="@string/r_against_ki"
+            app:defaultValue="true" />
+
+        <CheckBoxPreference
+            app:key="pref_player_first"
+            app:title="@string/r_first_turn"
+            app:defaultValue="true"
+            app:dependency="pref_player_ki" />
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        app:key="setting_play_depth"
+        app:title="@string/r_title_ki_settings_i">
+
+        <ListPreference
+            app:key="playing_depth"
+            app:title="@string/r_choose_depth"
+            app:summary="%1$s"
+            app:dependency="pref_player_ki"
+            app:entries="@array/playing_depth"
+            app:entryValues="@array/playing_depth"
+            app:defaultValue="2" />
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        app:key="settings_evaluation_function"
+        app:title="@string/r_title_ki_settings_ii">
+
+        <ListPreference
+            app:key="capture_turn"
+            app:title="@string/r_capture_turn"
+            app:summary="%1$s"
+            app:dependency="pref_player_ki"
+            app:entries="@array/evaluation_function"
+            app:entryValues="@array/evaluation_function"
+            app:defaultValue="8" />
+
+        <ListPreference
+            app:key="kalaha_diff"
+            app:title="@string/r_kalaha_difference"
+            app:summary="%1$s"
+            app:dependency="pref_player_ki"
+            app:entries="@array/evaluation_function"
+            app:entryValues="@array/evaluation_function"
+            app:defaultValue="4" />
+
+        <ListPreference
+            app:key="stone_diff"
+            app:title="@string/r_stone_difference"
+            app:summary="%1$s"
+            app:dependency="pref_player_ki"
+            app:entries="@array/evaluation_function"
+            app:entryValues="@array/evaluation_function"
+            app:defaultValue="7" />
+
+        <ListPreference
+            app:key="repeated_turn"
+            app:title="@string/r_repeated_turn"
+            app:summary="%1$s"
+            app:dependency="pref_player_ki"
+            app:entries="@array/evaluation_function"
+            app:entryValues="@array/evaluation_function"
+            app:defaultValue="-2" />
+
+        <ListPreference
+            app:key="turn_13"
+            app:title="@string/r_turn_13"
+            app:summary="%1$s"
+            app:dependency="pref_player_ki"
+            app:entries="@array/evaluation_function"
+            app:entryValues="@array/evaluation_function"
+            app:defaultValue="1" />
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        app:key="default_values"
+        app:title="@string/r_title_notes">
+
+    <Preference
+        app:title="@string/r_pref_title_restore"
+        app:key="restore_key"
+        app:summary="@string/r_default_values" />
+
+        <EditTextPreference
+            app:key="user_value_i"
+            app:title="@string/r_title_your_values"
+            app:summary="@string/user_note_i"
+            app:defaultValue="@string/user_note_i" />
+
+    </androidx.preference.PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

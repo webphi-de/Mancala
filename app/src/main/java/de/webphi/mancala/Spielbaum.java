@@ -3,24 +3,29 @@
  *
  * Der Spielbaum ist die Klasse, die den Autoplayer Intelligenz einhaucht. der Einstieg ist die
  * Methode berechneZug(), die der Autoplayer aufruft. Sie lässt sich vom MinIMax-Algorithmus mit
- * Alpha/Beta-Schnitt und 2 unterschiedlichen Bewertungsfunktionen den besten Zug berechnen.
+ * Alpha/Beta-Schnitt und Bewertungsfunktion, um den besten Zug zu berechnen.
  * Für die Bewertungsfunktion lassen sich einige Parameter von außen steuern und so dem Autoplayer
  * unterschiedliche Spielcharakteristik einstellen. Zusätzlich lässt sich die Spiektiefe einstellen.
- * 5 Spielfeldtiefen benötigen auf meinem Laptop (i5 8250U) ca. eine gute Sekunde, in der bis zu
- * 1 Million Spielzüge berechnet werden.
+ * 9 Spielfeldtiefen benötigen auf meinem Laptop (i5 8250U) weniger als Sekunde, in der bis zu
+ * 500,000 Spielzüge berechnet werden. Auf dem gleiche Gerät schafft der Emulator ca 700,000 Züge
+ * in 45 s (Mein original Nexus 5 ist deutlich langsamer!). Auf einem IBM A31p mit Pentium 4 vor 13
+ * Jahren benötigte dabei knapp unter 5 s.
  *
  * @project Initially a Mancala-Project during the Software Engineering Practical Course in WS/SS 2005/06
  *          at the University of Bayreuth from Melanie and Stefan Kannegießer.
- *          Now porting as an Android App from 2019 during a training course at ALP Dillingen.
- * @author  Melanie and Stefan Kannegießer
- * @version v1.0 17.03.2006
- * @since   JDK 1.5.0
- * @history v1.00 17.03.2006 - first executable version
+ * //old @version v1.0 17.03.2006
+ * //old @since   JDK 1.5.0
+ * //old @history v1.00 17.03.2006 - result of practical course to play via rmi against chair ai1 at university of bayreuth
+ *
+ * @author  Stefan Kannegieße
+ * @since   JDK 8, Android API 29
+ * @version
+ * @history v0.10 01.08.2019 - porting as an Android App. * @history v1.00 17.03.2006 - first executable version
  *          v1.10 05.08.2019 - (new version) first executable version
  *          with 2 manual players or against an automatic player
  *
  */
-package com.example.mancala;
+package de.webphi.mancala;
 
 public class Spielbaum {
 
@@ -35,7 +40,7 @@ public class Spielbaum {
     private int ZUG_13 = 1;
     private int CAPTURE_ZUG = 1;
     private int WIEDERHOLTER_ZUG = 1;
-    private int TIEFE = 9;//9
+    private int TIEFE = 5;//9
     
     private int durchsuchteSpielbretter = 0;
     private long benoetigteZeit = 0;
@@ -256,14 +261,14 @@ public class Spielbaum {
         
         Spielbrett spielbrettCopy = new Spielbrett();
         
-        spielbrettCopy.initAutoPlayer(spielbrett.getEigenerSpieler().isAktiv());
+        spielbrettCopy.setPlayer(true, spielbrett.getEigenerSpieler().isAktiv());//getEigenerSpieler
         spielbrettCopy.initMulden();
-        
+
         for (int i = 1; i <= 14; i++) {
-            
+
             spielbrettCopy.getMulde(i).setAnzSteine(spielbrett.getMulde(i).getAnzSteine());
         }
-        ;
+
         return spielbrettCopy;
     }
 
@@ -299,7 +304,7 @@ public class Spielbaum {
         else {
             
         
-            if (spielbrett.getEigenerSpieler().isAktiv()) {
+            if (spielbrett.getEigenerSpieler().isAktiv()) {//getEigenerSpieler
        
                 for (int mulde = 1; mulde <= 6; mulde++) {
           
@@ -369,7 +374,7 @@ public class Spielbaum {
             
                 spiel_tmp = copy (spielbrett);
                 spiel_tmp.makeMove (mulde);
-                wert[mulde-1] = minimaxWert (spiel_tmp, tiefe, NEG_INFINITY, POS_INFINITY);//TIEFE
+                wert[mulde-1] = minimaxWert (spiel_tmp, TIEFE(), NEG_INFINITY, POS_INFINITY);//TIEFE
             }
         }
 

@@ -9,20 +9,24 @@
  *
  * @project Initially a Mancala-Project during the Software Engineering Practical Course in WS/SS 2005/06
  *          at the University of Bayreuth from Melanie and Stefan Kannegießer.
- *          Now porting as an Android App from 2019 during a training course at ALP Dillingen.
- * @author  Stefan Kannegießer
- * @version v1.0 17.03.2006
- * @since   JDK 1.5.0
- * @history v1.00 17.03.2006 - first executable version
- *          v1.10 05.08.2019 - (new version) first executable version
+ * //old @version v1.0 17.03.2006
+ * //old @since   JDK 1.5.0
+ * //old @history v1.00 17.03.2006 - result of practical course to play via rmi against chair ai1 at university of bayreuth
+ *
+ * @author  Stefan Kannegieße
+ * @since   JDK 8, Android API 29
+ * @version
+ * @history v0.10 01.08.2019 - porting as an Android App.
+ *          v0.10 05.08.2019 - (new version) first executable version
  *          with 2 manual players or against an automatic player
  *
  */
-package com.example.mancala;
+package de.webphi.mancala;
 
 public class Spielbrett {
-	
-    // die zwei Spieler am Brett
+
+
+	// die zwei Spieler am Brett
 	private Spieler eigener;
 	private Spieler gegner;
 
@@ -43,28 +47,32 @@ public class Spielbrett {
 	}
 
 	/**
-     * Initialisiert die beiden Spieler am Brett.
-     * Setzt den einen Spieler auf aktiv den anderen passiv.
-     * 
-	 * @param aktiv der Spieler der bei der Eroeffnung aktiv ist
+	 * Initialize two Players and game board
+	 *
+	 * @param ki will start the game with autoplayer
+	 * @param first ki at first or second
 	 */
-	public void initSpieler (boolean aktiv) {
+	public void setPlayer(boolean ki, boolean first) {
 
-		eigener = new ManuellerPlayer();
-		gegner = new RemotePlayer();
+		if (ki){
 
-        eigener.setAktiv(aktiv);
-		gegner.setAktiv(!aktiv);
+			eigener = new Autoplayer(this);
+			gegner = new RemotePlayer();
+
+			eigener.setAktiv(first);
+			gegner.setAktiv(!first);
+		}
+		else {
+
+			eigener = new ManuellerPlayer();
+			gegner = new RemotePlayer();
+
+			eigener.setAktiv(first);
+			gegner.setAktiv(!first);
+		}
+
+//		initMulden();
 	}
-	
-    public void initAutoPlayer(boolean aktiv) {
-
-        eigener = new Autoplayer(this);
-        gegner = new RemotePlayer();
-
-        eigener.setAktiv(aktiv);
-        gegner.setAktiv(!aktiv);
-    }
 
 	/**
 	 * Initialisiert die Mulden mit den Spielsteinen am
@@ -89,9 +97,8 @@ public class Spielbrett {
 	}
     
 	/**
-     * Die Methode realisiert jeden Zug am Spielbrett und 
-     * beinhaltet damit auch die gesamte Logik.
-     * 
+     * Die Methode realisiert jeden Zug am Spielbrett
+     *
 	 * @param muldenNummer die Muldennummer, die gespielt werden soll
 	 */
 	public void makeMove (int muldenNummer) {
@@ -127,11 +134,16 @@ public class Spielbrett {
 						
 			if (mulde.getMuldenTyp() == PLAY_MULDE) {
 
+				// @todo überl. ob die beiden zeilen getauscht werden können
                 switchPlayer();
 				
 				if (mulde.getAnzSteine() == 1 && !(mulde.getSpieler().isAktiv())) {
 					
 					makeGoodMove(mulde.getMuldenNummer());
+					if (isLastMove(muldenNummer)){
+
+						finish(muldenNummer);
+					}
 				}
 			}
 			
@@ -148,13 +160,14 @@ public class Spielbrett {
 	 * @param muldenNummer
 	 * @return legaler Zug
 	 */
-	public boolean isRightMove(int muldenNummer){
+	public boolean isRightMove ( int muldenNummer ) {
 		
-		mulde.setAktuelleMulde(muldenNummer);
+		mulde.setAktuelleMulde ( muldenNummer );
 		return mulde.getMuldenTyp() == PLAY_MULDE && mulde.getAnzSteine() > 0;
 	}
 	
 	/**
+	 * 'CaptureZug'
      * Hilfsmethode zu makeMove()
      * 
      * Macht nach dem Regelwerk einen besonders guten Zug.
@@ -323,6 +336,14 @@ public class Spielbrett {
     public Spieler getGegnerSpieler() {
         return gegner;
     }
+
+	public void setEigener(Spieler eigener) {
+		this.eigener = eigener;
+	}
+
+	public void setGegner(Spieler gegner) {
+		this.gegner = gegner;
+	}
 
 	/**
 	 * @return ist das Spiel beendet

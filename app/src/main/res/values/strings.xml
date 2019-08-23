@@ -1,4 +1,133 @@
 <resources>
     <string name="app_name">Mancala</string>
     <string name="action_settings">Settings</string>
+    <string name="game_rules">Game rules</string>
+    <string name="restorelButton">Restore Setting</string>
+    <string name="user_note_i">Your note</string>
+
+    <string-array name="playing_depth">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="evaluation_function">
+        <item>-5</item>
+        <item>-4</item>
+        <item>-3</item>
+        <item>-2</item>
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string name="tv_game_rules_header">Mancala</string>
+
+    <string name="tv_game_rules">
+    <![CDATA[
+    <h4>Basic Rules</h4>
+    <p>
+        <ol>
+            <li>
+                Each player has 6 pits with 6 tokens and one, to begin with empty end, well to his right.
+            </li>
+            <li>
+                Die Spielzüge sind abwechselnd und gegen den Uhrzeigersinn.
+            </li>
+            <li>
+                Für einen Spielzug werden alle Steine aus einer Spielmulde genommen und einzeln, Stein für Stein, inclusive der
+                eigenen Endmulde, nicht aber in die des Gegeners, verteilt.
+            </li>
+            <li>
+                Nachdem alle Steine verteilt sind, hat der Spieler gewonnen, der die meisten Steine in seiner Endmulde hat.
+            </li>
+        </ol>
+    </p>
+    <p>
+        <h4>Advanced Rules:</h4>
+    </p>
+    <p>
+        <ol>
+            <li>
+                Endet man beim Verteilen der Steine in seiner Endmulde, darf man wiederholt ziehen. -> REPEATED_TURN
+            </li>
+            <li>
+                Gelingt es einem mit dem letzten Stein in eine eigene zuvor leere Mulde zu kommen, so bekommt man seinen einen
+                Stein, plus alle gegenüberliegende Steine in seine Endmulde gutgeschrieben! -> CAPTURE_TURN
+            </li>
+            <li>
+                Hat ein Spieler nach seinem Zug kein Stein mehr in seinen Mulden, bekommt der Gegner alle verbliebenen Steine.
+            </li>
+        </ol>
+    </p>
+    ]]>
+    </string>
+    <string name="tv_game_discription">
+        <![CDATA[
+        <b>Mancala</b>
+        ]]>
+
+    </string>
+    <string name="title_about">About</string>
+    <string name="text_about">
+        <![CDATA[
+            <p>
+                Dies ist kein komerzielles Produkt. Ich habe weder Werbung integriert noch bedarf es irgendwelcher Rechte,
+                die App zu benutzen.
+                Bitte hab ein wenig Nachsicht, ich habe die App aus reinem Hobby erstellt. Wenn Du möchtest, hilf doch
+                mit und gib mir Dein Feedback. Schreib mir, falls Dir Fehler auffallen oder Verbesserungen einfallen.
+            </p>
+            <p>
+                Diese App ist ursprünglich aus einem Programmierkurs zwischen den Jahren 2005 und 2006 am Lehrstuhl für
+                angewandte Informatik an der Uni Bayreuth entstanden. 13 Jahre später im August 2019 hatte ich endlich Lust,
+                und vor allem wieder etwas Zeit das Spiel als Androis App zu schreiben.
+            </p>
+            <p>
+                In diesem Sinne, <br>
+                ich hoffe, dass Dir das Spiel gefällt und ebensoviel Spaß macht..<br>
+                <br><br>
+                Stefan Kannegießer
+                <br><b>
+                <a href="mailto:stefan.kannegiesser@googlemail.com">E-Mail schreiben</a>
+                <br><br>
+                Oder besuche einmal meine Homepage, auf der es unter anderem um einen kleinen Programmierkurs für Schüler geht:
+                <a href="https://webphi.de>webphi</>
+            </p>
+        ]]>
+    </string>
+    <string name="turn">Turn:</string>
+    <string name="info">Info:</string>
+    <string name="choose_player">Choose Player</string>
+    <string name="r_first_turn">Want the first turn?</string>
+    <string name="r_against_ki">Play against KI?</string>
+    <string name="r_title_ki_settings_i">KI setting I</string>
+    <string name="r_title_ki_settings_ii">KI settings II - values for evaluation function</string>
+    <string name="r_choose_depth">choose searching depth of alpha-beta algorithm</string>
+    <string name="r_capture_turn">Capture turn</string>
+    <string name="r_kalaha_difference">Kalaha difference</string>
+    <string name="r_stone_difference">Stones difference</string>
+    <string name="r_repeated_turn">Repeated turn</string>
+    <string name="r_turn_13">Turn 13</string>
+    <string name="r_title_notes">Notes</string>
+    <string name="r_pref_title_restore">Restore</string>
+    <string name="r_default_values">Default values from evaluation function: 8, 4, 7, -2, 1</string>
+    <string name="r_title_your_values">Note your values</string>
+
+    <!--
+    -->
 </resources>
