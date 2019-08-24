@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Zu GameRulesActivity wechseln
         else if (id == R.id.game_rules){
 
-            Toast.makeText(this, "game rules selected", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "game rules selected", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, GameRulesActivity.class);
             startActivity(intent);
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (id == R.id.about){
 
-            Toast.makeText(this, "about selected", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "about selected", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
@@ -140,9 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Der Benutzer startet das Spiel
         else if (id == R.id.ic_menu_play) {
 
-            tv_move.setText("Turn: ");
-            tv_moveInfo.setText("Info: ");
-
+            resetInfo();
             initSpielfeld();
             setMulden();
             return true;
@@ -186,8 +184,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void resetInfo(){
 
-        tv_move.setText("Turn: ");
-        tv_moveInfo.setText("Info: ");
+        tv_move.setText(getString(R.string.turn));
+        tv_moveInfo.setText(getString(R.string.info));
     }
 
     private void playKI() {
@@ -211,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else if (move_ki == 6) a_6.performClick();
         }
         else {
-            Toast.makeText(this, "Game finished!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_finished), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -351,7 +349,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         savedInstanceState.putInt(B6, spielbrett.getMulde(13).getAnzSteine());
         savedInstanceState.putInt(B_END, spielbrett.getMulde(14).getAnzSteine());
 
-        Toast.makeText(this, "onSaveInstanceState", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "onSaveInstanceState", Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -127,6 +127,7 @@
     <string name="r_pref_title_restore">Restore</string>
     <string name="r_default_values">Default values from evaluation function: 8, 4, 7, -2, 1</string>
     <string name="r_title_your_values">Note your values</string>
+    <string name="toast_finished">Game finished.</string>
 
     <!--
     -->
