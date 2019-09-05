@@ -20,7 +20,7 @@ package de.webphi.mancala;
 public class RemotePlayer extends Spieler {
 	
 	private int muldenNummer;
-	private Spielbrett spielbrett;
+	// --Commented out by Inspection (28.08.2019 20:36):private Spielbrett spielbrett;
 
 	public RemotePlayer() {
 		super();
@@ -36,14 +36,18 @@ public class RemotePlayer extends Spieler {
 ////		spielbrettGui.setConsumeMove(muldenNummer);
 //	}
 
-	public int getMuldenNummer() {
-		return muldenNummer;
-	}
+// --Commented out by Inspection START (28.08.2019 20:35):
+//	public int getMuldenNummer() {
+//		return muldenNummer;
+//	}
+// --Commented out by Inspection STOP (28.08.2019 20:35)
 
-	public void setMuldenNummer(int muldenNummer) {
-		this.muldenNummer = muldenNummer;
-//		System.out.println("Remote Spieler: " + muldenNummer);
-	}
+// --Commented out by Inspection START (28.08.2019 20:35):
+//	public void setMuldenNummer(int muldenNummer) {
+//		this.muldenNummer = muldenNummer;
+////		System.out.println("Remote Spieler: " + muldenNummer);
+//	}
+// --Commented out by Inspection STOP (28.08.2019 20:35)
 
     @Override
     public void makeMove() {

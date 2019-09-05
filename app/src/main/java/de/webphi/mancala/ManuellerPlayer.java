@@ -28,13 +28,17 @@ public class ManuellerPlayer extends Spieler {
 		muldenNummer = 0;
 	}
 
-	public int getMuldenNummer() {
-		return muldenNummer;
-	}
+// --Commented out by Inspection START (28.08.2019 20:34):
+//	public int getMuldenNummer() {
+//		return muldenNummer;
+//	}
+// --Commented out by Inspection STOP (28.08.2019 20:34)
 
-	public void setMuldenNummer(int muldenNummer) {
-		this.muldenNummer = muldenNummer;
-	}
+// --Commented out by Inspection START (28.08.2019 20:34):
+//	public void setMuldenNummer(int muldenNummer) {
+//		this.muldenNummer = muldenNummer;
+//	}
+// --Commented out by Inspection STOP (28.08.2019 20:34)
 
     @Override
     public void makeMove() {

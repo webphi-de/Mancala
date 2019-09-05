@@ -25,7 +25,7 @@ public abstract class Spieler {
 	private int letzterZug;
     private Spielbaum spielbaum;
 	
-	public Spieler () {
+	Spieler() {
 		
 	}
 	

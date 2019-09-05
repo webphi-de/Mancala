@@ -59,7 +59,7 @@ public class Spielbaum {
         
     }
     
-    public int bewertungsFkt (Spielbrett spielbrett) {
+    private int bewertungsFkt(Spielbrett spielbrett) {
         
         if (bewertungsFkt == 0)
             
@@ -74,7 +74,7 @@ public class Spielbaum {
      * @param   spielbrett Spielbrett
      * @return  die Bewrtung
      */
-    public int bewertung_1 (Spielbrett spielbrett) {
+    private int bewertung_1(Spielbrett spielbrett) {
 
         steineDifferenz = 0; kalahaDifferenz = 0; zug13 = 0; captureZug = 0; wiederholterZug = 0; retValue = 0;
         
@@ -160,7 +160,7 @@ public class Spielbaum {
         return retValue;
     }
 
-    public int bewertung_2 (Spielbrett spielbrett) {
+    private int bewertung_2(Spielbrett spielbrett) {
 
         steineDifferenz = 0; kalahaDifferenz = 0; zug13 = 0; captureZug = 0; wiederholterZug = 0; retValue = 0;
         
@@ -402,7 +402,7 @@ public class Spielbaum {
         return benoetigteZeit;
     }
 
-    public void setBenoetigteZeit(long benoetigteZeit) {
+    private void setBenoetigteZeit(long benoetigteZeit) {
         this.benoetigteZeit = benoetigteZeit;
     }
 
@@ -410,7 +410,7 @@ public class Spielbaum {
         return durchsuchteSpielbretter;
     }
 
-    public void setDurchsuchteSpielbretter(int durchsuchteStellungen) {
+    private void setDurchsuchteSpielbretter(int durchsuchteStellungen) {
         this.durchsuchteSpielbretter = durchsuchteStellungen;
     }
 
@@ -430,7 +430,7 @@ public class Spielbaum {
         TIEFE = tiefe;
     }
 
-    public int TIEFE() {
+    private int TIEFE() {
         return TIEFE;
     }
 

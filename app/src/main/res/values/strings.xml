@@ -2,7 +2,6 @@
     <string name="app_name">Mancala</string>
     <string name="action_settings">Settings</string>
     <string name="game_rules">Game rules</string>
-    <string name="restorelButton">Restore Setting</string>
     <string name="user_note_i">Your note</string>
 
     <string-array name="playing_depth">
@@ -40,38 +39,41 @@
 
     <string name="tv_game_rules">
     <![CDATA[
-    <h4>Basic Rules</h4>
+    <b>Base rules</b>
     <p>
         <ol>
             <li>
-                Each player has 6 pits with 6 tokens and one, to begin with empty end, well to his right.
+                 1. Each player has 6 pits with 6 stones each and a final well to his right.
             </li>
             <li>
-                Die Spielzüge sind abwechselnd und gegen den Uhrzeigersinn.
+                2. The moves are alternating and counterclockwise.
             </li>
             <li>
-                Für einen Spielzug werden alle Steine aus einer Spielmulde genommen und einzeln, Stein für Stein, inclusive der
-                eigenen Endmulde, nicht aber in die des Gegeners, verteilt.
+                3. For a turn all the stones are taken from a game pit and stone by stone, including
+                the own end pit, with the only exception of the opponent, distributed in a counterclockwise
+                direction.
             </li>
             <li>
-                Nachdem alle Steine verteilt sind, hat der Spieler gewonnen, der die meisten Steine in seiner Endmulde hat.
+                4. It is played until all the stones have disappeared from the game pits. The player won,
+                which has the most stones in its final pit.
             </li>
         </ol>
     </p>
     <p>
-        <h4>Advanced Rules:</h4>
+        <b>Extended Rules</b>
     </p>
     <p>
         <ol>
             <li>
-                Endet man beim Verteilen der Steine in seiner Endmulde, darf man wiederholt ziehen. -> REPEATED_TURN
+                1. If you finish by distributing the stones in its end pit, you may draw repeatedly.
             </li>
             <li>
-                Gelingt es einem mit dem letzten Stein in eine eigene zuvor leere Mulde zu kommen, so bekommt man seinen einen
-                Stein, plus alle gegenüberliegende Steine in seine Endmulde gutgeschrieben! -> CAPTURE_TURN
+                2. If you succeed in getting into a previously empty pit with the last stone, you
+                get this one stone, plus all opposing stones credited to its final pit.
             </li>
             <li>
-                Hat ein Spieler nach seinem Zug kein Stein mehr in seinen Mulden, bekommt der Gegner alle verbliebenen Steine.
+                3. If a player no longer has a stone in his pit after his turn, the opponent gets
+                all the remaining pieces on the board into his final pit.
             </li>
         </ol>
     </p>
@@ -79,7 +81,7 @@
     </string>
     <string name="tv_game_discription">
         <![CDATA[
-        <b>Mancala</b>
+        <b>Mancala ist ...</b>
         ]]>
 
     </string>
@@ -87,30 +89,19 @@
     <string name="text_about">
         <![CDATA[
             <p>
-                Dies ist kein komerzielles Produkt. Ich habe weder Werbung integriert noch bedarf es irgendwelcher Rechte,
-                die App zu benutzen.
-                Bitte hab ein wenig Nachsicht, ich habe die App aus reinem Hobby erstellt. Wenn Du möchtest, hilf doch
-                mit und gib mir Dein Feedback. Schreib mir, falls Dir Fehler auffallen oder Verbesserungen einfallen.
+                This is not a commercial product. I have neither integrated advertising nor do I need any permissions.
             </p>
             <p>
-                Diese App ist ursprünglich aus einem Programmierkurs zwischen den Jahren 2005 und 2006 am Lehrstuhl für
-                angewandte Informatik an der Uni Bayreuth entstanden. 13 Jahre später im August 2019 hatte ich endlich Lust,
-                und vor allem wieder etwas Zeit das Spiel als Androis App zu schreiben.
+                I created this app out of pure interest in Android, having fun programming and
+                enjoying the game of Mancala in my spare time. For suggestions or improvements,
+                I would be glad, if you write me a message.
             </p>
             <p>
-                In diesem Sinne, <br>
-                ich hoffe, dass Dir das Spiel gefällt und ebensoviel Spaß macht..<br>
-                <br><br>
-                Stefan Kannegießer
-                <br><b>
-                <a href="mailto:stefan.kannegiesser@googlemail.com">E-Mail schreiben</a>
-                <br><br>
-                Oder besuche einmal meine Homepage, auf der es unter anderem um einen kleinen Programmierkurs für Schüler geht:
-                <a href="https://webphi.de>webphi</>
+                In this sense, I hope you like the game and enjoy it as much.
             </p>
         ]]>
     </string>
-    <string name="turn">Turn:</string>
+    <string name="turn">Turn: </string>
     <string name="info">Info:</string>
     <string name="choose_player">Choose Player</string>
     <string name="r_first_turn">Want the first turn?</string>
@@ -128,6 +119,11 @@
     <string name="r_default_values">Default values from evaluation function: 8, 4, 7, -2, 1</string>
     <string name="r_title_your_values">Note your values</string>
     <string name="toast_finished">Game finished.</string>
+    <string name="move_str">%1$s(%2$s) > %3$s;</string>
+    <string name="move_str_end">%1$s(%2$s) > end;</string>
+    <string name="info_str">Calculated moves: %1s  in %2s.%3s s</string>
+    <string name="e_mail">stefan.kannegiesser@googlemail.com</string>
+    <string name="web">https://webphi.de</string>
 
     <!--
     -->

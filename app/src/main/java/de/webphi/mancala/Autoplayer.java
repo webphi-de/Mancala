@@ -24,14 +24,16 @@ package de.webphi.mancala;
 public class Autoplayer extends Spieler {
 
     private int muldenNummer;
-    private Spielbrett spielbrett;
+    private final Spielbrett spielbrett;
     private Spielbaum spielbaum;
 
-    public int getAnzSteineInMulde() {
-        return spielbrett.getMulde().getAnzSteine();
-    }
+// --Commented out by Inspection START (28.08.2019 20:28):
+//    public int getAnzSteineInMulde() {
+//        return spielbrett.getMulde().getAnzSteine();
+//    }
+// --Commented out by Inspection STOP (28.08.2019 20:28)
 
-    private int anzSteineInMulde;
+    // --Commented out by Inspection (28.08.2019 20:28):private int anzSteineInMulde;
 
     public Autoplayer(Spielbrett spielbrett) {
         super();
@@ -43,40 +45,49 @@ public class Autoplayer extends Spieler {
     public void makeMove () {
 
         //@todo: 2 argument spieltiefe weg machen. wird über settings gesetzt
-        int zug = spielbaum.berechneZug(spielbrett, 7);
-        muldenNummer = zug;
+        muldenNummer = spielbaum.berechneZug(spielbrett, 7);
     }
 
-    private void setBewertungsFaktoren_johannes () {
+// --Commented out by Inspection START (28.08.2019 20:28):
+//    private void setBewertungsFaktoren_johannes () {
+//
+//        this.getSpielbaum().CAPTURE_ZUG(6);
+//        this.getSpielbaum().KALAHA_DIFFERENZ(5);
+//        this.getSpielbaum().STEINE_DIFFERENZ(2);
+// --Commented out by Inspection START (28.08.2019 20:28):
+////        this.getSpielbaum().WIEDERHOLTER_ZUG(7);
+////        this.getSpielbaum().ZUG_13(4);
+////    }
+//// --Commented out by Inspection STOP (28.08.2019 20:28)
+//    private void setBewertungsFaktoren_stefan () {
+//
+//        this.getSpielbaum().CAPTURE_ZUG(8);
+//        this.getSpielbaum().KALAHA_DIFFERENZ(4);
+//// --Commented out by Inspection START (28.08.2019 20:28):
+// --Commented out by Inspection STOP (28.08.2019 20:28)
+//        this.getSpielbaum().STEINE_DIFFERENZ(7);
+//        this.getSpielbaum().WIEDERHOLTER_ZUG(-2);
+//        this.getSpielbaum().ZUG_13(1);
+//    }
+//    private void setBewertungsFaktoren_lukas () {
+//
+//        this.getSpielbaum().CAPTURE_ZUG(4);
+//        this.getSpielbaum().KALAHA_DIFFERENZ(5);
+// --Commented out by Inspection START (28.08.2019 20:28):
+////        this.getSpielbaum().STEINE_DIFFERENZ(6);
+//// --Commented out by Inspection STOP (28.08.2019 20:28)
+// --Commented out by Inspection STOP (28.08.2019 20:28)
+//        this.getSpielbaum().WIEDERHOLTER_ZUG(3);
+//        this.getSpielbaum().ZUG_13(4);
+//    }
 
-        this.getSpielbaum().CAPTURE_ZUG(6);
-        this.getSpielbaum().KALAHA_DIFFERENZ(5);
-        this.getSpielbaum().STEINE_DIFFERENZ(2);
-        this.getSpielbaum().WIEDERHOLTER_ZUG(7);
-        this.getSpielbaum().ZUG_13(4);
-    }
-    private void setBewertungsFaktoren_stefan () {
 
-        this.getSpielbaum().CAPTURE_ZUG(8);
-        this.getSpielbaum().KALAHA_DIFFERENZ(4);
-        this.getSpielbaum().STEINE_DIFFERENZ(7);
-        this.getSpielbaum().WIEDERHOLTER_ZUG(-2);
-        this.getSpielbaum().ZUG_13(1);
-    }
-    private void setBewertungsFaktoren_lukas () {
-
-        this.getSpielbaum().CAPTURE_ZUG(4);
-        this.getSpielbaum().KALAHA_DIFFERENZ(5);
-        this.getSpielbaum().STEINE_DIFFERENZ(6);
-        this.getSpielbaum().WIEDERHOLTER_ZUG(3);
-        this.getSpielbaum().ZUG_13(4);
-    }
-
-
-    public int getMove(){
-        muldenNummer = spielbaum.berechneZug(spielbrett, 2);
-        return  muldenNummer;
-    }
+// --Commented out by Inspection START (28.08.2019 20:28):
+//    public int getMove(){
+//        muldenNummer = spielbaum.berechneZug(spielbrett, 2);
+//        return  muldenNummer;
+//    }
+// --Commented out by Inspection STOP (28.08.2019 20:28)
 
     public int getMuldenNummer() {
         return muldenNummer;

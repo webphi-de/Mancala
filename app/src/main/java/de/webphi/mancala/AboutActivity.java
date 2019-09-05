@@ -1,6 +1,7 @@
 package de.webphi.mancala;
 
 import android.os.Bundle;
+import android.text.Spanned;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +12,6 @@ import de.webphi.mancala.R;
 public class AboutActivity extends AppCompatActivity {
 
 
-    private TextView tv_about;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -20,7 +19,8 @@ public class AboutActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_about);
 
-        tv_about = (TextView) findViewById(R.id.tv_about);
-        tv_about.setText(HtmlCompat.fromHtml(getString(R.string.text_about), HtmlCompat.FROM_HTML_MODE_LEGACY));
+        TextView tv_about = findViewById(R.id.tv_about);
+        Spanned sp = HtmlCompat.fromHtml( getString(R.string.text_about), HtmlCompat.FROM_HTML_MODE_LEGACY);
+        tv_about.setText(sp);
     }
 }

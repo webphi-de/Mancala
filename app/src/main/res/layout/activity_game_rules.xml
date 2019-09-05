@@ -13,12 +13,12 @@
         android:orientation="vertical">
 
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tv_game_rules_header"
-        android:textSize="22sp" />
+        android:textSize="22sp" />-->
 
     <TextView
         android:id="@+id/tv_rules"
@@ -26,11 +26,11 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_game_rules" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tv_game_discription" />
+        android:text="@string/tv_game_discription" />-->
 
     </LinearLayout>
 </ScrollView>

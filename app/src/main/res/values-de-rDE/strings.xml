@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string name="app_name">Mancala</string>
+<string name="action_settings">Einstellungen</string>
+<string name="game_rules">Spielregeln</string>
+    <string name="user_note_i">Deine Notiz</string>
+
+<string-array name="playing_depth">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>6</item>
+<item>7</item>
+<item>8</item>
+<item>9</item>
+</string-array>
+
+<string-array name="evaluation_function">
+<item>-5</item>
+<item>-4</item>
+<item>-3</item>
+<item>-2</item>
+<item>-1</item>
+<item>0</item>
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>6</item>
+<item>7</item>
+<item>8</item>
+<item>9</item>
+<item>10</item>
+</string-array>
+
+<string name="tv_game_rules_header">Mancala</string>
+
+<string name="tv_game_rules">
+    <![CDATA[
+    <b>Grundregeln</b>
+    <p>
+        <ol>
+            <li>
+                 1. Jeder Spieler besitzt 6 Spielmulden mit je 6 Steinen und eine Endmulde rechts von ihm.
+            </li>
+            <li>
+                2. Die Spielzüge sind abwechselnd und gegen den Uhrzeigersinn.
+            </li>
+            <li>
+                3. Für einen Spielzug werden alle Steine aus einer Spielmulde genommen und einzeln, Stein für Stein, inklusive der
+                eigenen Endmulde, mit Ausnahme der Endmulde des Gegners, gegen den Uhrzeigersinn verteilt.
+            </li>
+            <li>
+                4. Es wird so lange gespielt, bis alle Steine aus den Spielmulden verschwunden sind. Der Spieler hat gewonnen,
+                der die meisten Steine in seiner Endmulde hat.
+            </li>
+        </ol>
+    </p>
+    <p>
+        <b>Besondere Regeln</b>
+    </p>
+    <p>
+        <ol>
+            <li>
+                1. Endet man beim Verteilen der Steine in seiner Endmulde, darf man wiederholt ziehen.
+            </li>
+            <li>
+                2. Gelingt es einem mit dem letzten Stein in eine eigene zuvor leere Mulde zu kommen, so bekommt man seinen einen
+                Stein, plus alle gegenüberliegende Steine in seine Endmulde gutgeschrieben.
+            </li>
+            <li>
+                3. Hat ein Spieler nach seinem Zug kein Stein mehr in seinen Mulden, bekommt der
+                Gegner alle verbliebenen Steine auf dem Spielbrett in seine Endmulde.
+            </li>
+        </ol>
+    </p>
+    ]]>
+    </string>
+<string name="tv_game_discription">
+        <![CDATA[
+        <b>Mancala ist ...</b>
+        ]]>
+
+    </string>
+<string name="title_about">Über die App</string>
+<string name="text_about">
+        <![CDATA[
+            <p>
+                Dies ist kein kommerzielles Produkt. Ich habe weder Werbung integriert noch bedarf es
+                irgendwelcher Rechte.
+            </p>
+            <p>
+                Ich habe diese App aus reinem Interesse an Android, Spaß am Programmieren und Freude
+                am Spiel Mancala in meiner Freizeit erstellt. Bei Vorschlägen oder Verbesserungen
+                würde ich mich freuen, wenn Sie mir eine Nachricht schreiben.
+            </p>
+            <p>
+                In diesem Sinne, <br>
+                ich hoffe, dass Ihnen das Spiel gefällt und ebenso viel Freude bereitet.<br>
+            </p>
+        ]]>
+    </string>
+<string name="turn">Zug: </string>
+<string name="info">Info:</string>
+<string name="choose_player">Spieler wählen</string>
+<string name="r_first_turn">Möchtest Du beginnen?</string>
+<string name="r_against_ki">Möchtest Du gegen die KI spielen?</string>
+<string name="r_title_ki_settings_i">KI Einstellungen I</string>
+<string name="r_title_ki_settings_ii">KI Einstellunegn II - Werte für die Bewertungsfunktion</string>
+<string name="r_choose_depth">Wähle die Spieltiefe des Algorithmus</string>
+<string name="r_capture_turn">Letzter Zug in eine leere Mulde</string>
+<string name="r_kalaha_difference">Steineunterschied der Endmulden</string>
+<string name="r_stone_difference">Steinedifferenz der Spielmulden</string>
+<string name="r_repeated_turn">Zugwiederholung</string>
+<string name="r_turn_13">Zug 13</string>
+<string name="r_title_notes">Notizen</string>
+<string name="r_pref_title_restore">Wiederherstellen</string>
+<string name="r_default_values">Standardwerte: 8, 4, 7, -2, 1</string>
+<string name="r_title_your_values">Deine Werte</string>
+<string name="toast_finished">Spiel beendet!.</string>
+<string name="move_str">%1$s(%2$s) > %3$s;</string>
+<string name="move_str_end">%1$s(%2$s) > end;</string>
+    <string name="info_str">Berechnete Züge: %1s  in %2s.%3s s</string>
+<string name="e_mail">stefan.kannegiesser@googlemail.com</string>
+<string name="web">https://webphi.de</string>
+
+    </resources>

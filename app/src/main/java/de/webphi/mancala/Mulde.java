@@ -66,15 +66,17 @@ public class Mulde {
 			tmp.setNachfolgerMulde(mulde);
 		}
 	}
-	/**
-     * Getter fuer die aktuelle Mulde
-     * 
-	 * @return Mulden Objekt
-	 */
-	public MuldenObj getAktuelleMulde () {
-		
-		return mulde;
-	}
+// --Commented out by Inspection START (28.08.2019 20:35):
+//	/**
+//     * Getter fuer die aktuelle Mulde
+//     *
+//	 * @return Mulden Objekt
+//	 */
+//	public MuldenObj getAktuelleMulde () {
+//
+//		return mulde;
+//	}
+// --Commented out by Inspection STOP (28.08.2019 20:35)
 
 	/**
      * Setzt die aktuelle Mulde anhand der Nummer
@@ -97,13 +99,15 @@ public class Mulde {
 		mulde = mulde.getNachfolgerMulde();
 	}
 	
-	/**
-	 * @return das naechste Mulden Objekt
-	 */
-	public MuldenObj getNaechsteMulde () {
-		
-		return mulde.getNachfolgerMulde();
-	}
+// --Commented out by Inspection START (28.08.2019 20:35):
+//	/**
+//	 * @return das naechste Mulden Objekt
+//	 */
+//	public MuldenObj getNaechsteMulde () {
+//
+//		return mulde.getNachfolgerMulde();
+//	}
+// --Commented out by Inspection STOP (28.08.2019 20:35)
 
 	/**
 	 * @return die anzahl der Spielsteine in der Mulde

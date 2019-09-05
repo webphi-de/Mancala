@@ -23,7 +23,7 @@
  */
 package de.webphi.mancala;
 
-public class Spielbrett {
+class Spielbrett {
 
 
 	// die zwei Spieler am Brett
@@ -95,64 +95,188 @@ public class Spielbrett {
 		mulde.erzeugeMulde(END_MULDE, 0, 14, gegner);
 
 	}
-    
+
+	public void makeMove(int muldenNummer) {
+
+		int anzahlSteine = 0;
+		boolean capture_turn = false;
+
+		mulde.setAktuelleMulde(muldenNummer); // Zeiger auf aktuelle Position
+
+		if (mulde.getAnzSteine() > 0) { // Regulären Zug?
+
+			anzahlSteine = mulde.getAnzSteine(); // Alle Steine nehmen
+			mulde.setAnzSteine(0);
+
+			for (int i = 0; i < anzahlSteine; i++) { // Und verteilen
+
+				mulde.setNaechsteMulde();
+
+				if (mulde.getMuldenTyp() == PLAY_MULDE || mulde.getSpieler().isAktiv()) {
+
+					mulde.setAnzSteine(mulde.getAnzSteine() + 1);
+				}
+				else { // Die gegenerische Endmulde überspringen
+
+					i--;
+				}
+			}
+
+			// Nun die Sonderfälle:
+
+			// ZUG_WIEDERHOLUNG
+			if (mulde.getMuldenTyp() == PLAY_MULDE) {
+
+				switchPlayer(); // Wenn der letzte Stein in seiner Endmulde landet wird wiederholt
+			}
+
+			// CAPTURE_ZUG
+			if (mulde.getAnzSteine() == 1 && mulde.getMuldenTyp() == PLAY_MULDE &&
+					!mulde.getSpieler().isAktiv()) {
+
+				capture_turn = true; // Für Sonderfall am Schluss
+
+				// leeren
+				anzahlSteine = mulde.getAnzSteine();
+				mulde.setAnzSteine(0);
+				mulde.setAktuelleMulde(14 - mulde.getMuldenNummer());
+				anzahlSteine += mulde.getAnzSteine();
+				mulde.setAnzSteine(0);
+
+				// und gutschreiben
+				if (muldenNummer < 7) {
+
+					mulde.setAktuelleMulde(7);
+					mulde.setAnzSteine(mulde.getAnzSteine() + anzahlSteine);
+				}
+				else {
+
+					mulde.setAktuelleMulde(14);
+					mulde.setAnzSteine(mulde.getAnzSteine() + anzahlSteine);
+				}
+			}
+
+			// LETZTER_ZUG - Prüfung I
+			if (muldenNummer < 7) {
+
+				mulde.setAktuelleMulde(1);
+			}
+			else {
+
+				mulde.setAktuelleMulde(8);
+			}
+
+			anzahlSteine = mulde.getAnzSteine();
+
+			for (int i = 0; i < 6; i++) {
+
+				anzahlSteine += mulde.getAnzSteine();
+				mulde.setNaechsteMulde();
+			}
+
+			// LETZTER_ZUG - Ausführung I
+			if (anzahlSteine == 0) {
+
+//				mulde.setNaechsteMulde();
+
+				for (int i = 0; i < 6; i++) { // Die letzten Steine auf dem Spielfeld dem Gegner gutschreiben
+
+					mulde.setNaechsteMulde();
+					anzahlSteine += mulde.getAnzSteine();
+					mulde.setAnzSteine(0);
+				}
+				mulde.setNaechsteMulde();
+				mulde.setAnzSteine(mulde.getAnzSteine() + anzahlSteine);
+
+				setFinished(true); // Auf 'beendet' setzen
+			}
+			else if (capture_turn) { // Für den Fall, dass der Gegner dem Gegenüber den letzten Stein raubt
+
+				// LETZTER_ZUG - Prüfung II
+				if (muldenNummer < 7) {
+
+					mulde.setAktuelleMulde(8);
+				}
+				else {
+
+					mulde.setAktuelleMulde(1);
+				}
+
+				anzahlSteine = mulde.getAnzSteine();
+
+				for (int i = 0; i < 6; i++) {
+
+					anzahlSteine += mulde.getAnzSteine();
+					mulde.setNaechsteMulde();
+				}
+
+				// LETZTER_ZUG - Ausführung II
+				if (anzahlSteine == 0) {
+
+//				mulde.setNaechsteMulde();
+
+					for (int i = 0; i < 6; i++) { // Die letzten Steine auf dem Spielfeld dem Gegner gutschreiben
+
+						mulde.setNaechsteMulde();
+						anzahlSteine += mulde.getAnzSteine();
+						mulde.setAnzSteine(0);
+					}
+					mulde.setNaechsteMulde();
+					mulde.setAnzSteine(mulde.getAnzSteine() + anzahlSteine);
+
+					setFinished(true); // Auf 'beendet' setzen
+				}
+			}
+		}
+	}
+
+
+
+
+
 	/**
      * Die Methode realisiert jeden Zug am Spielbrett
      *
 	 * @param muldenNummer die Muldennummer, die gespielt werden soll
 	 */
-	public void makeMove (int muldenNummer) {
-		
-        if (isRightMove(muldenNummer)) {
-
-            if(eigener.isAktiv()){
-			
-				eigener.setLetzterZug(muldenNummer);
-				//model.notifyObservers("makeMove");
-			}
-			else {
-       
-                //model.notifyObservers("moveGegner");
-                gegner.setLetzterZug(muldenNummer);
-            }
-
-			int steine = mulde.getAnzSteine();
-			mulde.setAnzSteine(0);
-
-			for (int i = 0; i < steine; i++) {
-
-				mulde.setNaechsteMulde();
-
-				if (mulde.getMuldenTyp() != END_MULDE || mulde.getSpieler().isAktiv()) {
-
-					mulde.setAnzSteine(mulde.getAnzSteine() + 1);
-				}
-				else {
-					i--;
-				}
-			}
-						
-			if (mulde.getMuldenTyp() == PLAY_MULDE) {
-
-				// @todo überl. ob die beiden zeilen getauscht werden können
-                switchPlayer();
-				
-				if (mulde.getAnzSteine() == 1 && !(mulde.getSpieler().isAktiv())) {
-					
-					makeGoodMove(mulde.getMuldenNummer());
-					if (isLastMove(muldenNummer)){
-
-						finish(muldenNummer);
-					}
-				}
-			}
-			
-			if (isLastMove(muldenNummer)){
-
-                finish(muldenNummer);
-            }
-		}
-	}
+//	public void makeMove (int muldenNummer) {
+//
+//		if (isRightMove(muldenNummer)) {
+//
+//
+//			int steine = mulde.getAnzSteine();
+//			mulde.setAnzSteine(0);
+//
+//			for (int i = 0; i < steine; i++) {
+//
+//				mulde.setNaechsteMulde();
+//
+//				if (mulde.getMuldenTyp() != END_MULDE || mulde.getSpieler().isAktiv()) {
+//
+//					mulde.setAnzSteine(mulde.getAnzSteine() + 1);
+//					// @TODO evtl. neu für MainActivity: writeInfo(): public int setZielmulde(mulde.getMuldennummer())
+//				}
+//				else {
+//					i--;
+//				}
+//			}
+//
+//			if (mulde.getMuldenTyp() == PLAY_MULDE) {
+//
+//				switchPlayer();
+//
+//				if (mulde.getAnzSteine() == 1 && !(mulde.getSpieler().isAktiv())) {
+//
+//					makeCaptureMove(mulde.getMuldenNummer());
+//				}
+//			}
+//
+//			if (isLastMove(muldenNummer)){
+//
+//                finish(muldenNummer);
+//            }
+//		}
+//	}
 
 	/**
      * Hilfsmethode, um zu ueberpruefen, ob es sich um einen gueltigen Zug handelt
@@ -162,7 +286,7 @@ public class Spielbrett {
 	 */
 	public boolean isRightMove ( int muldenNummer ) {
 		
-		mulde.setAktuelleMulde ( muldenNummer );
+		mulde.setAktuelleMulde ( muldenNummer ); // !! Setzt Mulde auf die richtige
 		return mulde.getMuldenTyp() == PLAY_MULDE && mulde.getAnzSteine() > 0;
 	}
 	
@@ -177,7 +301,7 @@ public class Spielbrett {
      * 
 	 * @param muldenNummer
 	 */
-	private void makeGoodMove(int muldenNummer) {
+	private void makeCaptureMove(int muldenNummer) {
 
 		int summe = 0;
 		
@@ -231,26 +355,27 @@ public class Spielbrett {
 	 * @return 
 	 */
 	private boolean isLastMove (int muldenNummer) {
-		
-		boolean status = true;
+		// @TODO wenn der letzte ein capture zug oder endmulde war sucht man auf der falschen seite
+		boolean isLast = true;
 		
 		if (muldenNummer > 7)
-			
+
             mulde.setAktuelleMulde(8);
 		else
-			
+
             mulde.setAktuelleMulde(1);
-		
+
 		for (int i = 0; i < 6; i++) {
-			
+
 			if (mulde.getAnzSteine() > 0)
-				
-                status = false;
-			
+
+				return  false;
+//                isLast = false;
+
 			mulde.setNaechsteMulde();
 		}
-		
-		return status;
+
+		return isLast;
 	}
 	
     /**
